@@ -9,7 +9,8 @@
 git clone https://github.com/kimminkyeu/Lee-shell && cd ./Lee-shell && make
 
 #2) run shell program
-./lesh           ```
+./lesh   
+```
 
 ## 추가 예정. (설명 추가)
 
