@@ -5,6 +5,7 @@
 ## Compile & Run
 
 ```bash
+git clone https://github.com/kimminkyeu/Lee-shell
 cd ./Lee-shell  
 make             #1) compile Lee-shell
 
