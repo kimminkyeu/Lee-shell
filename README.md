@@ -5,12 +5,11 @@
 ## Compile & Run
 
 ```bash
-git clone https://github.com/kimminkyeu/Lee-shell
-cd ./Lee-shell  
-make             #1) compile Lee-shell
+#1) compile Lee-shell
+git clone https://github.com/kimminkyeu/Lee-shell && cd ./Lee-shell && make
 
-./lesh           #2) run shell program
-```
+#2) run shell program
+./lesh           ```
 
 ## 추가 예정. (설명 추가)
 
