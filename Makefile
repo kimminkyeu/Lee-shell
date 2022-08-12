@@ -6,12 +6,12 @@
 #    By: yehan <yehan@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:26:09 by minkyeki          #+#    #+#              #
-#    Updated: 2022/08/04 14:14:46 by yehan            ###   ########seoul.kr   #
+#    Updated: 2022/08/12 16:05:59 by minkyeki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME			= minishell
+NAME			= lesh
 CC				= cc
 
 # CFLAGS		= -Wall -Wextra -Werror -g3 -fsanitize=address
