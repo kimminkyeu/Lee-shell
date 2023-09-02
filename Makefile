@@ -6,10 +6,17 @@
 #    By: yehan <yehan@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 21:26:09 by minkyeki          #+#    #+#              #
-#    Updated: 2022/08/12 16:05:59 by minkyeki         ###   ########.fr        #
+#    Updated: 2023/09/03 01:26:59 by minkyeki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux) # LINUX
+	LINUX = 1
+endif
+ifeq ($(UNAME_S),Darwin) # MACOS
+	OSX = 1
+endif
 
 NAME			= lesh
 CC				= cc
@@ -83,30 +90,15 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-#-----------------------------------------------------------------------
-#    linux compile option                                              |
-#-----------------------------------------------------------------------
-# $(NAME): $(OBJ)
-# 	@make bonus -C $(LIBFT_DIR)
-# 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_DIR)libft.a -lreadline
-# 	@echo "$(RED)--------------------------------------------$(DEF_COLOR)"
-# 	@echo "$(RED)|       Minishell compile finished.        |$(DEF_COLOR)"
-# 	@echo "$(RED)--------------------------------------------$(DEF_COLOR)"
-# 	@echo "$(RED)|                                          |$(DEF_COLOR)"
-# 	@echo "$(RED)|                        Have fun!         |$(DEF_COLOR)"
-# 	@echo "$(RED)--------------------------------------------$(DEF_COLOR)"
 
-# %.o: %.c
-# 	@${CC} ${CFLAGS} -c $< -o $@
-# 	@echo "$(RED)Compiling... \t$< $(DEF_COLOR)"
-# -----------------------------------------------------------------------
-
-#-----------------------------------------------------------------------
-#    Mac compile option                                                |
-#-----------------------------------------------------------------------
 $(NAME): $(OBJ)
 	@make bonus -C $(LIBFT_DIR)
+ifdef LINUX
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_DIR)libft.a -lreadline
+endif
+ifdef OSX
 	@$(CC) $(CFLAGS) $(READLINE_COMFILE_FLAGS) $(LIBFT_DIR)libft.a $(OBJ) -o $(NAME)
+endif
 	@echo "$(RED)--------------------------------------------$(DEF_COLOR)"
 	@echo "$(RED)|       Minishell compile finished.        |$(DEF_COLOR)"
 	@echo "$(RED)--------------------------------------------$(DEF_COLOR)"
@@ -115,9 +107,13 @@ $(NAME): $(OBJ)
 	@echo "$(RED)--------------------------------------------$(DEF_COLOR)"
 
 %.o: %.c
+ifdef LINUX
+	@${CC} ${CFLAGS} -c $< -o $@
+endif
+ifdef OSX
 	@${CC} ${CFLAGS} $(READLINE_OBJ_FLAGS) -c $< -o $@
+endif
 	@echo "$(RED)Compiling... \t$< $(DEF_COLOR)"
-# #-----------------------------------------------------------------------
 
 clean:
 	@make clean -C $(LIBFT_DIR)
