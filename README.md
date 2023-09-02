@@ -6,6 +6,9 @@
 this project is for Linux, MacOS. (Windows is currently not supported)
 
 ```bash
+# 0) install readline using Homebrew (dependency)
+brew install readline
+
 # 1) get source from repo
 git clone https://github.com/kimminkyeu/Lee-shell 
 
